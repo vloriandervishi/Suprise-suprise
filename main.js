@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Create an event listener for the DOM after it loads
-  function fetchData() {
+  async function fetchData() {
     //Create function that will run the fetch request function
     fetch("https://rickandmortyapi.com/api/character")
       // Write the fetch request.
       .then((response) => response.json()) //Convert fetch promise into JSON
       .then((data) => renderQuotes(data)); //Send JSON data into a callback function
   }
-  function renderQuotes(data) {
+  async function renderQuotes(data) {
     //Build the function that creates and appends elements to DOM
     let quoteContainer = document.getElementById("quote-container");
     quoteContainer.innerHTML = "";
