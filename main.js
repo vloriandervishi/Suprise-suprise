@@ -7,19 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json()) //Convert fetch promise into JSON
       .then((data) => renderQuotes(data)); //Send JSON data into a callback function
   }
+  let count = 0;
   async function renderQuotes(data) {
     //Build the function that creates and appends elements to DOM
     let quoteContainer = document.getElementById("quote-container");
     quoteContainer.innerHTML = "";
-    data.results.slice(0, 10).forEach((quote) => {
-      let quoteElement = document.createElement("div");
-      quoteElement.classList.add("card");
-      // quoteElement.style.width = "10rem ";
-      quoteElement.id = "item";
-      quoteElement.innerHTML = `<img class="card-img-top" src=${quote.image}> <h2>${quote.name}</h2><p>${quote.species}</p><p>${quote.status}</p><p>${quote.gender}</p><p>${quote.origin.name}</p>`;
 
-      quoteContainer.appendChild(quoteElement);
+    document.addEventListener("click", (event) => {
+      data.results.splice(0, count).forEach((quote) => {
+        let quoteElement = document.createElement("div");
+        quoteElement.className = "card";
+        //quoteElement.style.width = "10rem ";
+        quoteElement.className = "grid-item";
+        quoteElement.innerHTML = `<img class="card-img-top" src=${quote.image}> <h2>${quote.name}</h2>`;
+        quoteContainer.appendChild(quoteElement);
+      });
+
+      return count++;
     });
   }
+
   fetchData();
 });
