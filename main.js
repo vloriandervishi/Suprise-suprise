@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", () => {
       // count will be updated to the number of characters
       data.results.splice(0, count).forEach((quote) => {
+        // console.log(quote);
         // div is created from DOM
         //bootstrap styling with class name
         // quoteElement.className = "card";
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //quoteElement.className = "grid-item";
         // will render the chards in the screen
         quoteElement.id = "divImg";
-        quoteElement.innerHTML = `<img src=${quote.image}> <h2>${quote.name}</h2>`;
+        quoteElement.innerHTML = `<img src=${quote.image}> <p>${quote.name}</p><p>${quote.status}</p`;
 
         quoteContainer.appendChild(quoteElement);
       });
@@ -73,6 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (e.key === "ArrowDown") {
           moveStageDown();
         }
+      });
+      document.addEventListener("mouseover", function (e) {
+        let pStyles = document.querySelector("p");
+        pStyles.style.color = "red";
       });
     });
     return count++; //counts each time page is clicked
