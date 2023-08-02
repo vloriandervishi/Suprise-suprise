@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 100% 100%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
@@ -16,9 +16,21 @@ body{
 		background-position: 0% 50%;
 	}
 }
+img {
+  width: 50%;
+}
+.container{
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  height: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 600px;
+  
+}
 
-
-.grid-container {
+/* .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap: 10px;
@@ -31,4 +43,59 @@ body{
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
+  } */
+ #divImg{
+   border-style: dashed;
+   position:absolute;
+ }
+  #stage {
+    
+    border-style:double;
+  }
+
+  #rotator a {
+    position: absolute;
+    left: -81px;
+  }
+  #rotator a img {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    -webkit-backface-visibility: hidden;
+  }
+
+  #rotator a:nth-of-type(1) img {
+    -webkit-transform: rotateY(-90deg) translateZ(300px);
+  }
+  #rotator a:nth-of-type(2) img {
+    -webkit-transform: rotateY(-60deg) translateZ(300px);
+  }
+  #rotator a:nth-of-type(3) img {
+    -webkit-transform: rotateY(-30deg) translateZ(300px);
+  }
+  #rotator a:nth-of-type(4) img {
+    -webkit-transform: translateZ(300px);
+    background: #000;
+  }
+  #rotator a:nth-of-type(5) img {
+    -webkit-transform: rotateY(30deg) translateZ(300px);
+  }
+  #rotator a:nth-of-type(6) img {
+    -webkit-transform: rotateY(60deg) translateZ(300px);
+  }
+  #rotator a:nth-of-type(n+7) { display: none; }
+  @-webkit-keyframes rotator {
+    from { -webkit-transform: rotateY(0deg);  }
+    to   { -webkit-transform: rotateY(30deg); }
+  }
+
+  #rotator {
+    -webkit-transform-origin: 0 0;
+    -webkit-transform-style: preserve-3d;
+    -webkit-animation-timing-function: cubic-bezier(1, 0.2, 0.2, 1);
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 1s;
+  }
+  #rotator:hover {
+    -webkit-animation-play-state: paused;
   }
