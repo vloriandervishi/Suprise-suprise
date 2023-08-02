@@ -67,13 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
       //event listeners for keydwon event
       document.addEventListener("keydown", function (e) {
         if (e.key === "ArrowLeft") {
-          moveStageLeft();
-        } else if (e.key === "ArrowRight") {
           moveStageRight();
+        } else if (e.key === "ArrowRight") {
+          moveStageLeft();
         } else if (e.key === "ArrowUp") {
-          moveStageUp();
-        } else if (e.key === "ArrowDown") {
           moveStageDown();
+        } else if (e.key === "ArrowDown") {
+          moveStageUp();
         }
       });
       // after mouse hover over will change color to red
