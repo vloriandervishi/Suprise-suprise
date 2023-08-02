@@ -1,11 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Create an event listener for the DOM after it loads
   async function fetchData() {
+    // async makes a function return a Promise
     //Create function that will run the fetch request function
-    const response = await fetch("https://rickandmortyapi.com/api/character");
-    const data = await response.json();
+    const response = await fetch("https://rickandmortyapi.com/api/character"); // await makes a function wait for a Promise
+
+    const data = await response.json(); // await makes a function wait for a Promise
+
     return renderQuotes(data);
   }
+
   let count = 0;
   // Async functioin
   async function renderQuotes(data) {
