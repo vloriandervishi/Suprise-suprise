@@ -2,36 +2,33 @@ document.addEventListener("DOMContentLoaded", () => {
   // Create an event listener for the DOM after it loads
   async function fetchData() {
     //Create function that will run the fetch request function
-    fetch("https://rickandmortyapi.com/api/character")
-      // Write the fetch request.
-      .then((response) => response.json()) //Convert fetch promise into JSON
-      .then((data) => renderQuotes(data)); //Send JSON data into a callback function
+    const response = await fetch("https://rickandmortyapi.com/api/character");
+    const data = await response.json();
+    return renderQuotes(data);
   }
   let count = 0;
-
+  // Async functioin
   async function renderQuotes(data) {
     //Build the function that creates and appends elements to DOM
     let quoteContainer = document.getElementById("stage");
     //quoteContainer.innerHTML = "";
+    quoteContainer.className = "card";
     let quoteElement = document.createElement("div");
-
+    //----------------------------------------------------------------
     document.addEventListener("click", () => {
       // count will be updated to the number of characters
       data.results.splice(0, count).forEach((quote) => {
-        // console.log(quote);
-        // div is created from DOM
-        //bootstrap styling with class name
-        // quoteElement.className = "card";
-        // properly align with grid class name
-        //quoteElement.className = "grid-item";
-        // will render the chards in the screen
         quoteElement.id = "divImg";
-        quoteElement.innerHTML = `<img src=${quote.image}> <p>${quote.name}</p><p>${quote.status}</p`;
+
+        quoteElement.innerHTML = `<img class="card-img-top" style="width:10rem;" src=${quote.image}> <h6>${quote.name}</h6><p>${quote.status}</p>`;
 
         quoteContainer.appendChild(quoteElement);
       });
+      //----------------------------------------------------------------
       let mvLEFT = 0;
       let mvTop = 0;
+
+      //--------------------------------------------------------
       function moveStageLeft() {
         let divImgLeft = document.getElementById("divImg");
         divImgLeft.style.left = `${mvLEFT}px`;
@@ -40,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return (mvLEFT += 5);
       }
+      // ----------------------------------------------------------------
       function moveStageRight() {
         let divImgRight = document.getElementById("divImg");
         divImgRight.style.left = `${mvLEFT}px`;
@@ -48,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return (mvLEFT -= 5);
       }
+      //----------------------------------------------------------------
       function moveStageUp() {
         let divImgTop = document.getElementById("divImg");
         divImgTop.style.top = `${mvTop}px`;
@@ -56,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return (mvTop += 5);
       }
+      //----------------------------------------------------------------
       function moveStageDown() {
         let divImgDown = document.getElementById("divImg");
         divImgDown.style.top = `${mvTop}px`;
@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return (mvTop -= 5);
       }
+      //event listeners for keydwon event
       document.addEventListener("keydown", function (e) {
         if (e.key === "ArrowLeft") {
           moveStageLeft();
@@ -75,9 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
           moveStageDown();
         }
       });
+      // after mouse hover over will change color to red
       document.addEventListener("mouseover", function (e) {
+        let h6Styles = document.querySelector("h6");
+        h6Styles.style.color = "red";
+        h6Styles.style.backgroundColor = "gray";
         let pStyles = document.querySelector("p");
-        pStyles.style.color = "red";
+        pStyles.style.color = "green";
+        pStyles.style.backgroundColor = "blue";
       });
     });
     return count++; //counts each time page is clicked
