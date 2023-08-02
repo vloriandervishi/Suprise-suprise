@@ -31,7 +31,7 @@ body{
 }
 
  #divImg{
-   border-style: dashed;
+   background-color: #23d5ab;
    position:absolute;
  }
   #stage {
