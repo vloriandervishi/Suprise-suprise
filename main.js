@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return (mvTop -= 5);
       }
-      //event listeners for keydwon event
       document.addEventListener("keydown", function (e) {
         if (e.key === "ArrowLeft") {
           moveStageRight();
@@ -74,12 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
           moveStageUp();
         }
       });
-      // after mouse hover over will change color to red
+      let h6Styles = document.querySelector("h6");
+      let pStyles = document.querySelector("p");
+
       document.addEventListener("mouseover", function (e) {
-        let h6Styles = document.querySelector("h6");
+        e.preventDefault();
         h6Styles.style.color = "red";
         h6Styles.style.backgroundColor = "gray";
-        let pStyles = document.querySelector("p");
         pStyles.style.color = "green";
         pStyles.style.backgroundColor = "blue";
       });
