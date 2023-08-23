@@ -79,9 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.addEventListener("mouseover", function (e) {
         e.preventDefault();
         h6Styles.style.color = "red";
-        h6Styles.style.backgroundColor = "gray";
-        pStyles.style.color = "green";
-        pStyles.style.backgroundColor = "blue";
+        pStyles.style.color = "violet";
       });
     });
     return count++;
