@@ -33,9 +33,12 @@ body{
  #divImg{
    background-color: #23d5ab;
    position:absolute;
+   
  }
   #stage {
-    
+    -webkit-border-radius: 40px 40px 40px 40px;
+-moz-border-radius: 40px 40px 40px 40px;
+border-radius: 40px 40px 40px 40px;
     border-style:double;
   }
 header, footer { 
@@ -45,6 +48,8 @@ img{
   width:600px;
   height: fit-content;
   justify-content: center;
+  border: 5px solid #84DE02;
+   border-radius: 28px;
 }
   
   
