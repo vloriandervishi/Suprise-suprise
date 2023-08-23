@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
       function moveStageLeft() {
         let divImgLeft = document.getElementById("divImg");
         divImgLeft.style.left = `${mvLEFT}px`;
-        if (mvLEFT >= 295) {
+        if (mvLEFT >= 395) {
+          debugger;
           return (mvLEFT = 0);
         }
         return (mvLEFT += 5);
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       function moveStageRight() {
         let divImgRight = document.getElementById("divImg");
         divImgRight.style.left = `${mvLEFT}px`;
+
         if (mvLEFT <= 0) {
           return (mvLEFT = 0);
         }
