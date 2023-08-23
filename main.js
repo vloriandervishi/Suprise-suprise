@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       function moveStageLeft() {
         let divImgLeft = document.getElementById("divImg");
         divImgLeft.style.left = `${mvLEFT}px`;
-        if (mvLEFT >= 1300) {
+        if (mvLEFT >= 421) {
           return (mvLEFT = 0);
         }
         return (mvLEFT += 10.5);
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       function moveStageUp() {
         let divImgTop = document.getElementById("divImg");
         divImgTop.style.top = `${mvTop}px`;
-        if (mvTop >= 1300) {
+        if (mvTop >= 367) {
           return (mvTop = 0);
         }
         return (mvTop += 10.5);
