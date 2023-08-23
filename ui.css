@@ -21,12 +21,12 @@ body{
 }
 .container{
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  height: 600px;
+  height: 1300px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   text-align: center;
-  width: 600px;
+  width: 1300px;
   
 }
 

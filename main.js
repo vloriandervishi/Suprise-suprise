@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let divImgLeft = document.getElementById("divImg");
         divImgLeft.style.left = `${mvLEFT}px`;
         if (mvLEFT >= 423) {
-          debugger;
           return (mvLEFT = 0);
         }
         return (mvLEFT += 1.5);
