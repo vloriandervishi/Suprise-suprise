@@ -1,1 +1,1 @@
-# Suprise-suprise
+# Rick and Morty API
