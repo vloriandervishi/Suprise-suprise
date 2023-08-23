@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
       function moveStageLeft() {
         let divImgLeft = document.getElementById("divImg");
         divImgLeft.style.left = `${mvLEFT}px`;
-        if (mvLEFT >= 423) {
+        if (mvLEFT >= 1300) {
           return (mvLEFT = 0);
         }
-        return (mvLEFT += 1.5);
+        return (mvLEFT += 10.5);
       }
       // ----------------------------------------------------------------
       function moveStageRight() {
@@ -43,16 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mvLEFT <= 0) {
           return (mvLEFT = 0);
         }
-        return (mvLEFT -= 1.5);
+        return (mvLEFT -= 10.5);
       }
       //----------------------------------------------------------------
       function moveStageUp() {
         let divImgTop = document.getElementById("divImg");
         divImgTop.style.top = `${mvTop}px`;
-        if (mvTop >= 400) {
+        if (mvTop >= 1300) {
           return (mvTop = 0);
         }
-        return (mvTop += 1.5);
+        return (mvTop += 10.5);
       }
       //----------------------------------------------------------------
       function moveStageDown() {
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mvTop <= 0) {
           return (mvTop = 0);
         }
-        return (mvTop -= 1.5);
+        return (mvTop -= 10.5);
       }
       document.addEventListener("keydown", function (e) {
         if (e.key === "ArrowLeft") {
