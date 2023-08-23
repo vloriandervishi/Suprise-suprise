@@ -38,6 +38,13 @@ body{
     
     border-style:double;
   }
-
+header { 
+   text-align: center;
+  }
+img{
+  width:600px;
+  height: fit-content;
+  justify-content: center;
+}
   
   
