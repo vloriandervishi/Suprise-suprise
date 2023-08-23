@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       function moveStageLeft() {
         let divImgLeft = document.getElementById("divImg");
         divImgLeft.style.left = `${mvLEFT}px`;
-        if (mvLEFT >= 420) {
+        if (mvLEFT >= 439) {
           debugger;
           return (mvLEFT = 0);
         }
