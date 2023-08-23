@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let divEl = document.createElement("div");
     //----------------------------------------------------------------
     document.addEventListener("click", () => {
-      // count will be updated to the number of characters
       data.results.splice(0, count).forEach((quote) => {
         divEl.id = "divImg";
 
