@@ -38,7 +38,7 @@ body{
     
     border-style:double;
   }
-header { 
+header, footer { 
    text-align: center;
   }
 img{
