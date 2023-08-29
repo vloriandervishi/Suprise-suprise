@@ -3,11 +3,6 @@ stage.className = "card";
 let divEl = document.createElement("div");
 let mvLEFT = 0;
 let mvTop = 0;
-let divImgLeft,
-  divImgRight,
-  divImgTop,
-  divImgDown = document.getElementById("divImg");
-
 async function fetchData() {
   const response = await fetch("https://rickandmortyapi.com/api/character");
 
@@ -17,6 +12,7 @@ async function fetchData() {
 }
 //--------------------------------------------------------
 function moveStageLeft() {
+  let divImgLeft = document.getElementById("divImg");
   divImgLeft.style.left = `${mvLEFT}px`;
   if (mvLEFT >= 421) {
     return (mvLEFT = 0);
@@ -25,6 +21,7 @@ function moveStageLeft() {
 }
 // ----------------------------------------------------------------
 function moveStageRight() {
+  let divImgRight = document.getElementById("divImg");
   divImgRight.style.left = `${mvLEFT}px`;
 
   if (mvLEFT <= 0) {
@@ -34,6 +31,7 @@ function moveStageRight() {
 }
 //----------------------------------------------------------------
 function moveStageUp() {
+  let divImgTop = document.getElementById("divImg");
   divImgTop.style.top = `${mvTop}px`;
   if (mvTop >= 367) {
     return (mvTop = 0);
@@ -42,6 +40,7 @@ function moveStageUp() {
 }
 //----------------------------------------------------------------
 function moveStageDown() {
+  let divImgDown = document.getElementById("divImg");
   divImgDown.style.top = `${mvTop}px`;
   if (mvTop <= 0) {
     return (mvTop = 0);
