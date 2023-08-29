@@ -1,7 +1,6 @@
 let stage = document.getElementById("stage");
 stage.className = "card";
 let divEl = document.createElement("div");
-let count = 0;
 let mvLEFT = 0;
 let mvTop = 0;
 async function fetchData() {
@@ -51,7 +50,7 @@ function moveStageDown() {
 function renderCharacters(data) {
   //----------------------------------------------------------------
   document.addEventListener("click", () => {
-    data.results.splice(0, count).forEach((quote) => {
+    data.results.splice(0, 1).forEach((quote) => {
       divEl.id = "divImg";
 
       divEl.innerHTML = `<img class="card-img-top" style="width:10rem;" src=${quote.image}> <h6>${quote.name}</h6><p>${quote.status}</p>`;
@@ -81,7 +80,6 @@ function renderCharacters(data) {
       pStyles.style.color = "violet";
     });
   });
-  return count++;
 }
 
 document.addEventListener("DOMContentLoaded", fetchData);
