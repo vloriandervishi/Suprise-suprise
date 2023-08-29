@@ -2,7 +2,8 @@ let stage = document.getElementById("stage");
 stage.className = "card";
 let divEl = document.createElement("div");
 let count = 0;
-
+let mvLEFT = 0;
+let mvTop = 0;
 async function fetchData() {
   const response = await fetch("https://rickandmortyapi.com/api/character");
 
@@ -10,7 +11,43 @@ async function fetchData() {
 
   return renderCharacters(data);
 }
+//--------------------------------------------------------
+function moveStageLeft() {
+  let divImgLeft = document.getElementById("divImg");
+  divImgLeft.style.left = `${mvLEFT}px`;
+  if (mvLEFT >= 421) {
+    return (mvLEFT = 0);
+  }
+  return (mvLEFT += 10.5);
+}
+// ----------------------------------------------------------------
+function moveStageRight() {
+  let divImgRight = document.getElementById("divImg");
+  divImgRight.style.left = `${mvLEFT}px`;
 
+  if (mvLEFT <= 0) {
+    return (mvLEFT = 0);
+  }
+  return (mvLEFT -= 10.5);
+}
+//----------------------------------------------------------------
+function moveStageUp() {
+  let divImgTop = document.getElementById("divImg");
+  divImgTop.style.top = `${mvTop}px`;
+  if (mvTop >= 367) {
+    return (mvTop = 0);
+  }
+  return (mvTop += 10.5);
+}
+//----------------------------------------------------------------
+function moveStageDown() {
+  let divImgDown = document.getElementById("divImg");
+  divImgDown.style.top = `${mvTop}px`;
+  if (mvTop <= 0) {
+    return (mvTop = 0);
+  }
+  return (mvTop -= 10.5);
+}
 function renderCharacters(data) {
   //----------------------------------------------------------------
   document.addEventListener("click", () => {
@@ -22,46 +59,7 @@ function renderCharacters(data) {
       stage.appendChild(divEl);
     });
     //----------------------------------------------------------------
-    let mvLEFT = 0;
-    let mvTop = 0;
 
-    //--------------------------------------------------------
-    function moveStageLeft() {
-      let divImgLeft = document.getElementById("divImg");
-      divImgLeft.style.left = `${mvLEFT}px`;
-      if (mvLEFT >= 421) {
-        return (mvLEFT = 0);
-      }
-      return (mvLEFT += 10.5);
-    }
-    // ----------------------------------------------------------------
-    function moveStageRight() {
-      let divImgRight = document.getElementById("divImg");
-      divImgRight.style.left = `${mvLEFT}px`;
-
-      if (mvLEFT <= 0) {
-        return (mvLEFT = 0);
-      }
-      return (mvLEFT -= 10.5);
-    }
-    //----------------------------------------------------------------
-    function moveStageUp() {
-      let divImgTop = document.getElementById("divImg");
-      divImgTop.style.top = `${mvTop}px`;
-      if (mvTop >= 367) {
-        return (mvTop = 0);
-      }
-      return (mvTop += 10.5);
-    }
-    //----------------------------------------------------------------
-    function moveStageDown() {
-      let divImgDown = document.getElementById("divImg");
-      divImgDown.style.top = `${mvTop}px`;
-      if (mvTop <= 0) {
-        return (mvTop = 0);
-      }
-      return (mvTop -= 10.5);
-    }
     document.addEventListener("keydown", function (e) {
       if (e.key === "ArrowLeft") {
         moveStageRight();
@@ -73,11 +71,12 @@ function renderCharacters(data) {
         moveStageUp();
       }
     });
-    let h6Styles = document.querySelector("h6");
-    let pStyles = document.querySelector("p");
+    const pH6 = document.querySelector("p,h6");
 
-    document.addEventListener("mouseover", function (e) {
+    pH6.addEventListener("mouseover", function (e) {
       e.preventDefault();
+      let h6Styles = document.querySelector("h6");
+      let pStyles = document.querySelector("p");
       h6Styles.style.color = "red";
       pStyles.style.color = "violet";
     });
