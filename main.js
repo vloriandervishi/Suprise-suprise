@@ -3,6 +3,7 @@ stage.className = "card";
 let divEl = document.createElement("div");
 let mvLEFT = 0;
 let mvTop = 0;
+
 async function fetchData() {
   const response = await fetch("https://rickandmortyapi.com/api/character");
 
@@ -14,7 +15,7 @@ async function fetchData() {
 function moveStageLeft() {
   let divImgLeft = document.getElementById("divImg");
   divImgLeft.style.left = `${mvLEFT}px`;
-  if (mvLEFT >= 421) {
+  if (mvLEFT >= 766) {
     return (mvLEFT = 0);
   }
   return (mvLEFT += 10.5);
@@ -50,10 +51,10 @@ function moveStageDown() {
 function renderCharacters(data) {
   //----------------------------------------------------------------
   document.addEventListener("click", () => {
-    data.results.splice(0, 1).forEach((quote) => {
+    data.results.splice(0, 1).forEach((character) => {
       divEl.id = "divImg";
 
-      divEl.innerHTML = `<img class="card-img-top" style="width:10rem;" src=${quote.image}> <h6>${quote.name}</h6><p>${quote.status}</p>`;
+      divEl.innerHTML = `<img class="card-img-top" style="width:10rem;" src=${character.image}> <h6>${character.name}</h6><p>${character.status}</p>`;
 
       stage.append(divEl);
     });
@@ -71,13 +72,17 @@ function renderCharacters(data) {
       }
     });
     const pH6 = document.querySelector("p,h6");
-
+    let h6Styles = document.querySelector("h6");
+    let pStyles = document.querySelector("p");
     pH6.addEventListener("mouseover", function (e) {
       e.preventDefault();
-      let h6Styles = document.querySelector("h6");
-      let pStyles = document.querySelector("p");
       h6Styles.style.color = "red";
       pStyles.style.color = "violet";
+    });
+    pH6.addEventListener("mouseout", function (e) {
+      e.preventDefault();
+      h6Styles.removeAttribute("style");
+      pStyles.removeAttribute("style");
     });
   });
 }
